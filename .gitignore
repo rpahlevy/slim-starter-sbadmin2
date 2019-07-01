@@ -1,0 +1,7 @@
+/vendor/
+/logs/*.log
+/public/uploads/*
+/raw/*
+.env
+*.zip
+composer.lock
