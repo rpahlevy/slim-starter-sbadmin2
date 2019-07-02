@@ -1,6 +1,7 @@
-/vendor/
+/cache/
 /logs/*.log
 /public/uploads/*
+/vendor/
 /raw/*
 .env
 *.zip
