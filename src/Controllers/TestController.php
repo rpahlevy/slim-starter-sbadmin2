@@ -5,10 +5,10 @@ namespace App\Controllers;
 use Slim\Http\Request;
 use Slim\Http\Response;
 
-class TestController
+class TestController extends Controller
 {
-    public static function test($app, Request $request, Response $response, array $args=[])
+    public function test($request, $response, $args)
     {
-        return $app->view->render($response, 'template.html');
+        return $this->view($response, 'template.twig');
     }
 }

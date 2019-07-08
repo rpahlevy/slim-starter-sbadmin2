@@ -1,13 +1,16 @@
 <?php
 // DIC configuration
 
+use Slim\Views\Twig;
+use Slim\Views\TwigExtension;
+
 $container = $app->getContainer();
 
 // view renderer
 $container['view'] = function ($c) {
     $settings = $c->get('settings')['renderer'];
 	$view = new \Slim\Views\Twig($settings['template_path'], [
-        'cache' => $settings['cache_path']
+        // 'cache' => $settings['cache_path']
     ]);
     
     // Instantiate and add Slim specific extension
@@ -39,10 +42,10 @@ $container['view'] = function ($c) {
 // }
 
 // monolog
-$container['log'] = function ($c) {
+$container['logger'] = function ($c) {
     $settings = $c->get('settings')['logger'];
     $logger = new Monolog\Logger($settings['name']);
-    //$logger->pushProcessor(new Monolog\Processor\UidProcessor());
+    $logger->pushProcessor(new Monolog\Processor\UidProcessor());
     $logger->pushHandler(new Monolog\Handler\StreamHandler($settings['path'], $settings['level']));
     return $logger;
 };
@@ -75,3 +78,10 @@ $container['db'] = function($c) {
 // $container['session'] = function($c) {
     // return \App\Session::getInstance();
 // };
+
+
+
+// Controllers
+$container[\App\Controllers\TestController::class] = function ($c) {
+	return new \App\Controllers\TestController($c);
+};

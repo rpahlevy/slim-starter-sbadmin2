@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    {% include 'layouts/title.twig' %}
+
+    <!-- Custom fonts for this template-->
+    <link href="{{asset('css/font-awesome.min.css')}}" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+
+    <!-- Custom styles for this template-->
+    <link href="{{asset('css/sb-admin-2.min.css')}}" rel="stylesheet">
+    <style>
+        .sidebar #sidebarToggle::after,
+        .sidebar.toggled #sidebarToggle::after {
+            font-family: 'FontAwesome';
+        }
+    </style>
+	
+	{% block css %}{% endblock %}
+</head>
+
+<body id="page-top">
+
+    <!-- Page Wrapper -->
+    <div id="wrapper">
+
+        {% include 'layouts/sidebar.twig' %}
+
+        <!-- Content Wrapper -->
+        <div id="content-wrapper" class="d-flex flex-column">
+
+            <!-- Main Content -->
+            <div id="content">
+
+                {% include 'layouts/topbar.twig' %}
+
+                <!-- Begin Page Content -->
+                <div class="container-fluid">
+
+                    {% block content %}{% endblock %}
+
+                </div>
+                <!-- /.container-fluid -->
+
+            </div>
+            <!-- End of Main Content -->
+
+            {% include 'layouts/footer.twig' %}
+
+        </div>
+        <!-- End of Content Wrapper -->
+
+    </div>
+    <!-- End of Page Wrapper -->
+
+    {% include 'layouts/scrolltop.twig' %}
+
+    <!-- Bootstrap core JavaScript-->
+    <script src="{{asset('js/jquery.min.js')}}"></script>
+    <script src="{{asset('js/bootstrap.bundle.min.js')}}"></script>
+
+    <!-- Core plugin JavaScript-->
+    {# <script src="{{asset('js/jquery.easing.min.js')}}"></script> #}
+    <script src="{{asset('js/sweetalert.min.js')}}"></script>
+
+    <!-- Custom scripts for all pages-->
+    <script src="{{asset('js/sb-admin-2.min.js')}}"></script>
+
+    {% block js %}{% endblock %}
+</body>
+
+</html>

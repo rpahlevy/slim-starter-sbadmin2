@@ -1,0 +1,7 @@
+<title>
+    {% if title %}
+        {{title}} | {{env('APP_NAME', 'App')}}
+    {% else %}
+        {{env('APP_NAME', 'App')}}
+    {% endif %}
+</title>

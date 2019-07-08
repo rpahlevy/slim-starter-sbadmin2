@@ -6,14 +6,14 @@ $dotenv->load();
 
 return [
     'settings' => [
-        'displayErrorDetails' => true, // set to false in production
+        'displayErrorDetails' => !$_ENV['APP_ENV'] || $_ENV['APP_ENV'] != 'production' ? true : false,
         'addContentLengthHeader' => false, // Allow the web server to send the content-length header
-        'debugMode' => true,
+        'debugMode' => $_ENV['APP_DEBUG'] ? true : false,
 
         // Renderer settings
         'renderer' => [
             'template_path' => __DIR__ . '/../templates/',
-			'cache_path' => __DIR__ . '/../cache/'
+			'cache_path' => !$_ENV['APP_ENV'] || $_ENV['APP_ENV'] != 'production' ? '' : __DIR__ . '/../cache/'
         ],
 
         // Monolog settings
