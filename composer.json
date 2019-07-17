@@ -1,5 +1,5 @@
 {
-    "name": "slim/slim-starter-sbadmin2",
+    "name": "rpahlevy/slim-starter-sbadmin2",
     "description": "A Slim Framework skeleton application for rapid development",
     "keywords": ["microframework", "rest", "router", "psr7"],
     "homepage": "http://github.com/rpahlevy/slim-starter-sbadmin2",
@@ -13,6 +13,7 @@
     ],
     "require": {
         "php": ">=5.6",
+        "kanellov/slim-twig-flash": "^0.2.0",
         "slim/slim": "^3.1",
         "slim/twig-view": "^2.5",
         "vlucas/phpdotenv": "^2.4",
